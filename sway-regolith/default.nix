@@ -56,6 +56,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     pkgs.libGL pkgs.wayland pkgs.libxkbcommon pkgs.pcre2 pkgs.json_c pkgs.libevdev
     pkgs.pango pkgs.cairo pkgs.libinput pkgs.gdk-pixbuf pkgs.librsvg
     pkgs.wayland-protocols pkgs.libdrm
+    pkgs.wlroots
     (pkgs.wlroots.override { enableXWayland = finalAttrs.enableXWayland; })
   ] ++ pkgs.lib.optionals finalAttrs.enableXWayland [
     pkgs.xorg.xcbutilwm
