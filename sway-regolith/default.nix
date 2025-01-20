@@ -46,7 +46,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
   ];
 
   nativeBuildInputs = [
-    pkgs.meson pkgs.ninja pkgs.pkg-config pkgs.wayland-scanner pkgs.scdoc
+    pkgs.meson pkgs.ninja pkgs.pkg-config pkgs.wayland-scanner pkgs.scdoc pkgs.wlroots
   ];
 
   buildInputs = [
