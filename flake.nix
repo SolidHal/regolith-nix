@@ -1,18 +1,14 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # this version of sway-pkgs is used to build sway-regolith 
-    # unstable caused errors in build .... 
-    sway-pkgs.url = "github:NixOS/nixpkgs/nixos-24.05"; # todo --> Move to unstable 
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
   };
 
-  outputs = inputs@{ self,nixpkgs,sway-pkgs }:
+  outputs = inputs@{ self,nixpkgs }:
       let
         inherit (self) outputs;
         system = "x86_64-linux";
         inherit (nixpkgs) lib;
         pkgs = nixpkgs.legacyPackages.${system};
-        pkgs-sway = sway-pkgs.legacyPackages.${system};
       in
       {
         # holy regolith-nix module 🙏🏼
@@ -40,7 +36,7 @@
         packages."x86_64-linux".rofication = pkgs.callPackage ./rofication/default.nix{}; # todo --> Permission denied Error on <nix run>
         #might get resolved when running in regolith session....
 
-        packages."x86_64-linux".sway-regolith = pkgs.callPackage ./sway-regolith/default.nix{inherit pkgs-sway;}; #todo --> move to unstable version 
+        packages."x86_64-linux".sway-regolith = pkgs.callPackage ./sway-regolith/default.nix{};
         # {!done --> <nix run> sway regolith build failure
         # cause --> Change of versions in dependencies due to switch from 24.05--> unstable....}
 
