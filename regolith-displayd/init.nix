@@ -35,7 +35,6 @@ hash = "sha256-6E3oLlRNuEYrhkT0ENvyYzVvebK8JcSR1ubsEI34X0g=";
     --replace-quiet /usr/bin/regolith-displayd regolith-displayd    \
   '';
 
-  pathsToLink = [ /bin];
 
  meta = {
     mainProgram = "regolith-displayd-init";
