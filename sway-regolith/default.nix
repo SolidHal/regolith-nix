@@ -1,4 +1,4 @@
-{ pkgs-sway }:
+{ pkgs }:
 let
   # nixpkgs = builtins.fetchTarball {
   #   url = "https://github.com/NixOS/nixpkgs/archive/nixos-24.05.tar.gz";
@@ -7,7 +7,6 @@ systemdSupport = true;
 libtrawldb= (import ../libtrawldb/default.nix{inherit pkgs;});
   # pkgs = import nixpkgs { config = {}; };
   # todo | easy  --> Apply an overlay to solve this
-  pkgs= pkgs-sway;
 in
 pkgs.stdenv.mkDerivation (finalAttrs: {
   pname = "sway-regolith";
